@@ -1,9 +1,33 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const upload = require("../middleware/uploadFiles");
+const {
+  update,
+  deleteU,
+  showUser,
+  showUsers,
+  updateImage
+} = require("../controller/userController");
+const { validate } = require("../validation/userValidation");
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+router.put(
+  "/update/:id",
+  upload.single('image'),
+  validate(),
+  update
+);
+
+router.put(
+  "/updateImage/:id",
+  upload.single('image'),
+  updateImage
+);
+
+router.delete("/deleteUser/:id",  deleteU);
+
+router.get("/getUser/:id", showUser);
+
+router.get("/getUsers", showUsers);
 
 module.exports = router;
