@@ -15,13 +15,25 @@ nav .container {
     justify-content: space-between;
     font-size: 1.3rem;
 }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    nav .container {
 
+        font-size: 1.2rem;
+    }
+  }
 nav .container .nav-links {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
 }
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    nav .container .nav-links {
+    display: none;
+    
+    }
+  }
 nav .container .nav-links li a{
     text-transform: capitalize;
     color: var(--main-color);
@@ -38,7 +50,13 @@ nav .container .logo {
     width: 15%;
     display: flex;
 }
-
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    nav .container .logo {
+        width: 50%;
+        display: flex;
+    }
+  }
 nav .container .logo img {
     width: 100%;
 }

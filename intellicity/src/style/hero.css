@@ -1,11 +1,32 @@
 .hero-section{
     margin-top: 124px;
-    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .hero-section{
+        margin-top: 99px;
+       
+    }
+  }
+  
 
+  /* Medium screens (768px - 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .hero-section{
+        margin-top: 99px;
+        height: 60vh;
+    }
+  }
+/* Large screens (992px and up) */
+@media only screen and (min-width: 992px) {
+    .hero-section{
+
+        height: 90vh;
+    }
+  }
 .hero-section .container{
     
 }
@@ -15,24 +36,98 @@ align-items: center;
 justify-content: space-between;
 height: 100%;
 }
-
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .hero-section .container .content{
+        display: flex;
+        flex-direction: column;
+        }
+  }
+  
 .hero-section .container .content .left{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 50%;
 }
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .hero-section .container .content .left{
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        margin:3rem 0;
+    }
+  }
 .container .content .left h1{
     font-size: 3rem;
     margin-bottom: 1rem;
 }
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .container .content .left h1{
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+    }
+  }
+  /* Medium screens (768px - 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container .content .left h1{
+        font-size: 2rem;
+    }
+  }
 .container .content .left p{
     font-size: 1.2rem;
     margin-bottom: 3rem;
 }
+@media only screen and (max-width: 767px) {
+    .container .content .left p{
+        font-size: 1rem;
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+  }
+  /* Medium screens (768px - 991px) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container .content .left p{
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+  }
 .hero-section .container .content .right{
     width: 45%;
 }
+@media only screen and (max-width: 767px) {
+    .hero-section .container .content .right{
+        width: 100%;
+    }
+  }
 .hero-section .container .content .right img{
+  position: relative;
     width:100%;
+    animation: up-and-down 5s linear infinite;
+}
+
+@keyframes up-and-down {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: -50px;
+  }
+}
+
+  
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+  @keyframes up-and-down {
+    0%,
+    100% {
+      top: 0;
+    }
+    50% {
+      top: -45px;
+    }
+  }
 }
