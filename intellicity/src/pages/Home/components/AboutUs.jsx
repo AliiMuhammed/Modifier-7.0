@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import aboutImg from "../Assest/Images/About/about.jpg";
-import "../Style/about.css";
-import MainHeading from "./MainHeading";
+import aboutImg from "../../../Assest/Images/About/about.jpg";
+import "../style/about.css";
+import MainHeading from "../../../Shared/MainHeading";
 export const AboutUs = () => {
   return (
     <>
@@ -14,7 +14,9 @@ export const AboutUs = () => {
               <img src={aboutImg} alt="" />
             </div>
             <div className="right">
-              <h1>Revolutionizing Urban Living through Intelligent Solutions</h1>
+              <h1>
+                Revolutionizing Urban Living through Intelligent Solutions
+              </h1>
               <p>
                 IntelliCity is a pioneering company specializing in the field of
                 smart cities and urban development. With a strong focus on

@@ -17,28 +17,47 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    align-items: center;
 
+}
+
+.service-card .services-img {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .service-card img {
-    width: 90%;
+    width: 95%;
+    height: 300px;
     margin: 0 auto;
 }
 
+@media only screen and (max-width: 767px) {
+    .service-card img {
+        width: 100%;
+        height: 230px;
+        margin: 0 auto;
+    }
+    
+}
 
 .service-card h3 {
     font-size: 2rem;
     margin: 1rem 0;
 
 }
+
 @media only screen and (max-width: 767px) {
     .service-card h3 {
         font-size: 1.7rem;
-    
-    }
-  }
-.service-card .view-more-btn{
-    align-self: center;
+        margin-top: 0.5rem;
+    }   
 }
 
+.service-card .view-more-btn {
+    align-self: center;
+}

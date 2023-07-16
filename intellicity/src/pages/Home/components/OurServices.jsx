@@ -1,10 +1,13 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import img from "../Assest/Images/About/about.jpg";
-import "../Style/services.css";
+import parkingImg from "../../../Assest/Images/services/parking.png";
+import recycleImg from "../../../Assest/Images/services/recycle.png";
+import powerImg from "../../../Assest/Images/services/power.png";
+import transImg from "../../../Assest/Images/services/transport.png";
+import "../style/services.css";
 
-import MainHeading from "./MainHeading";
+import MainHeading from "../../../Shared/MainHeading";
 import ServiceCard from "./ServiceCard";
 function OurServices() {
   const responsive = {
@@ -37,13 +40,13 @@ function OurServices() {
           arrows={true}
           infinite
           autoPlay={true}
-          partialVisbile={true}
+          partialVisible={true}
           className="services-slider"
         >
-          <ServiceCard img={img} title={"ParkSense"} />
-          <ServiceCard img={img} title={"EcoCycle"} />
-          <ServiceCard img={img} title={"EnSmart"} />
-          <ServiceCard img={img} title={"MobiliCity"} />
+          <ServiceCard img={recycleImg} title={"EcoCycle"} />
+          <ServiceCard img={parkingImg} title={"ParkSense"} />
+          <ServiceCard img={powerImg} title={"EnSmart"} />
+          <ServiceCard img={transImg} title={"MobiliCity"} />
         </Carousel>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import landing from "../Assest/Images/Hero/landing.png";
-import "../Style/hero.css";
+import landing from "../../../Assest/Images/Hero/landing.png";
+import "../style/hero.css";
 const Header = () => {
   return (
     <>
