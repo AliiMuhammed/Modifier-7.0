@@ -1,0 +1,38 @@
+.hero-section{
+    margin-top: 124px;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section .container{
+    
+}
+.hero-section .container .content{
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 100%;
+}
+
+.hero-section .container .content .left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+}
+.container .content .left h1{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.container .content .left p{
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+.hero-section .container .content .right{
+    width: 45%;
+}
+.hero-section .container .content .right img{
+    width:100%;
+}
