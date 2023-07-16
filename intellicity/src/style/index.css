@@ -125,7 +125,7 @@ section{
 }
 .main-heading h1{
   text-transform: uppercase;
-
+  font-weight:500 ;
   color: var(--main-color);
   border: 2px solid var(--main-color);
   padding: 10px 20px;
@@ -182,7 +182,7 @@ section{
   100% {
     left: 0;
     border-radius: 0;
-    width: 50%;
+    width: 51%;
     height: 100%;
   }
 }

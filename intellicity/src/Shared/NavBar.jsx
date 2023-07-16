@@ -25,17 +25,19 @@ const NavBar = () => {
     <nav>
       <div className="container">
         <div className="logo">
-          <img src={logo} alt="logo" />
+          <Link to={"/#home"}>
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <ul className="nav-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/#home">Home</Link>
           </li>
           <li>
-            <Link to="#about">About us</Link>
+            <Link to="/#about">About us</Link>
           </li>
           <li>
-            <Link to="#our-services">Our Services</Link>
+            <Link to="/#our-services">Our Services</Link>
           </li>
           <li>
             <Link to="/contact-us">Contact Us</Link>

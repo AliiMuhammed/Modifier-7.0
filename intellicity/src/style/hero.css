@@ -108,26 +108,3 @@ height: 100%;
     animation: up-and-down 5s linear infinite;
 }
 
-@keyframes up-and-down {
-  0%,
-  100% {
-    top: 0;
-  }
-  50% {
-    top: -50px;
-  }
-}
-
-  
-/* Small screens (up to 767px) */
-@media only screen and (max-width: 767px) {
-  @keyframes up-and-down {
-    0%,
-    100% {
-      top: 0;
-    }
-    50% {
-      top: -45px;
-    }
-  }
-}
