@@ -10,6 +10,7 @@ const loginRouter = require("./routes/login");
 const aboutUs = require("./routes/aboutUs");
 const feeds = require("./routes/feedback");
 const contact = require("./routes/contactUs");
+const services = require("./routes/services");
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use("/users", usersRouter);
 app.use("/aboutUs", aboutUs);
 app.use("/feeds", feeds);
 app.use("/contact", contact);
+app.use("/services", services);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
