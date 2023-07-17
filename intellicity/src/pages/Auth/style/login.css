@@ -1,0 +1,157 @@
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    box-sizing: border-box;
+    display: block;
+    z-index: -1;
+}
+
+.login {
+    height: 100vh;
+    background-color: #3e42b117;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70%;
+}
+
+.login .container .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    width: 80%;
+    background-color: #fff;
+
+}
+
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .login .container .content {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .login .container .content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.login .container .content .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    background-image: url(../../../Assest/Images/login/login2.png);
+    background-size: cover;
+    color: #fff
+}
+
+/* Medium screens (768px - 991px) */
+@media only screen and (max-width: 991px) {
+    .login .container .content .left {
+        display: none;
+    }
+}
+
+.login .container .content .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .login .container .content .right {
+        justify-content: space-evenly;
+    }
+}
+
+.login .container .content .right h2 {
+    font-size: 2.5rem;
+    color: var(--second-color);
+    letter-spacing: 2px;
+}
+
+.login .container .content .right form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
+
+.login .container .content .right form div {
+    width: 70%;
+    margin-bottom: 2rem;
+
+}
+
+.login .container .content .right form input {
+    padding: 1.5rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-left: 6px solid var(--second-color);
+    background-color: #d0bbe766;
+    color: var(--main-color);
+    font-size: 1.1rem;
+    transition: var(--main-transition);
+}
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .login .container .content .right form input {
+        padding: 1.2rem;
+        font-size: 1rem;
+
+    }
+  }
+
+.login .container .content .right form input:focus {
+    border-left: 10px solid var(--main-color);
+}
+
+.login .container .content .right form input::placeholder {
+    color: #3e42b170;
+}
+
+.login .container .content .right form button {
+    cursor: pointer;
+    width: 70%;
+    font-size: 1.2rem;
+}
+
+
+
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/* Medium screens (768px - 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 85%;
+    }
+}
+
+
+
+
