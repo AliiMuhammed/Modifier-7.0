@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2023 at 03:27 AM
+-- Generation Time: Jul 17, 2023 at 09:57 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -89,6 +89,30 @@ INSERT INTO `feedback` (`id`, `user_id`, `rating`, `comment`, `services`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'not Available' COMMENT 'available OR not'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name`, `img`, `description`, `status`) VALUES
+(2, 'parking', '1689623741441.svg', 'k,c;almdalcjcdmlsa;,cacksd,c', 'not Available'),
+(3, 'parking', '1689623742132.svg', 'k,c;almdalcjcdmlsa;,cacksd,c', 'not Available'),
+(4, 'parking', '1689623742829.svg', 'k,c;almdalcjcdmlsa;,cacksd,c', 'not Available'),
+(5, 'parking', '1689623743971.svg', 'k,c;almdalcjcdmlsa;,cacksd,c', 'not Available');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -138,6 +162,12 @@ ALTER TABLE `feedback`
   ADD KEY `userConst` (`user_id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -164,6 +194,12 @@ ALTER TABLE `contactus`
 --
 ALTER TABLE `feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
