@@ -6,25 +6,15 @@ const {
   deleteU,
   showUser,
   showUsers,
-  updateImage
+  updateImage,
 } = require("../controller/userController");
 const { validate } = require("../validation/userValidation");
 
+router.put("/update/:id", upload.single("image"), validate(), update);
 
-router.put(
-  "/update/:id",
-  upload.single('image'),
-  validate(),
-  update
-);
+router.put("/updateImage/:id", upload.single("image"), updateImage);
 
-router.put(
-  "/updateImage/:id",
-  upload.single('image'),
-  updateImage
-);
-
-router.delete("/deleteUser/:id",  deleteU);
+router.delete("/deleteUser/:id", deleteU);
 
 router.get("/getUser/:id", showUser);
 
