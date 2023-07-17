@@ -1,4 +1,4 @@
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require("express-validator");
 
 function validate() {
   // console.log('flag');
@@ -7,19 +7,16 @@ function validate() {
       body("name")
         .isString()
         .isLength({ min: 3, max: 20 })
-        .withMessage('Please enter a valid  name'),
+        .withMessage("Please enter a valid  name"),
 
       body("phone")
         .isNumeric()
-        .isLength({max: 20 })
-        .withMessage('Please enter a valid phone'),
+        .isLength({ max: 20 })
+        .withMessage("Please enter a valid phone"),
 
-      body("email")
-        .isEmail()
-        .withMessage('Please enter a valid email'),
+      body("email").isEmail().withMessage("Please enter a valid email"),
 
       body("password"),
-        
 
       (req, res, next) => {
         const errors = validationResult(req);
@@ -27,8 +24,8 @@ function validate() {
           return res.status(422).json({ errors: errors.array() });
         }
         next();
-      }
-    ]
+      },
+    ];
   } catch (error) {
     console.log(error);
   }

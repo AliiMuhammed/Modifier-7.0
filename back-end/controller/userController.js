@@ -6,7 +6,7 @@ const {
   updateUser,
   deleteUser,
   showusers,
-  updateimage
+  updateimage,
 } = require("../services/userSevices");
 
 async function update(req, res) {
@@ -29,7 +29,7 @@ async function update(req, res) {
     };
 
     if (req.file) {
-        userObj.image = req.file.filename;
+      userObj.image = req.file.filename;
       if (user && user.image) {
         fs.unlinkSync("../upload/" + user[0].image);
       }
@@ -47,34 +47,33 @@ async function update(req, res) {
 }
 
 async function updateImage(req, res) {
-    try {
-  
-      const user = await getUserById(req.params.id);
-      if (!user[0]) {
-        return res.status(404).json({ errors: ["User not found"] });
-      }
-      let userObj={
-        image:req.file.filename
-      };
-  
-      if (req.file) {
-          userObj.image = req.file.filename;
-        if (user && user.image) {
-            console.log("flag");
-          fs.unlinkSync("../upload/" + user[0].image);
-        }
-      }
-  
-      await updateimage(user[0].id, userObj);
-  
-      res.status(200).json({
-        msg: "Image updated",
-      });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ errors: ["Internal server error"] });
+  try {
+    const user = await getUserById(req.params.id);
+    if (!user[0]) {
+      return res.status(404).json({ errors: ["User not found"] });
     }
+    let userObj = {
+      image: req.file.filename,
+    };
+
+    if (req.file) {
+      userObj.image = req.file.filename;
+      if (user && user.image) {
+        console.log("flag");
+        fs.unlinkSync("../upload/" + user[0].image);
+      }
+    }
+
+    await updateimage(user[0].id, userObj);
+
+    res.status(200).json({
+      msg: "Image updated",
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ errors: ["Internal server error"] });
   }
+}
 
 async function deleteU(req, res) {
   try {
@@ -105,11 +104,11 @@ async function showUsers(req, res) {
   try {
     const users = await showusers();
     if (users) {
-        users.map((user) => {
-            user.image_url = "http://" + req.hostname + ":3000/" + user.image;
-            delete user.password
+      users.map((user) => {
+        user.image_url = "http://" + req.hostname + ":3000/" + user.image;
+        delete user.password;
       });
-      delete users.password
+      delete users.password;
       res.status(200).json(users);
     } else {
       res.status(404).json({ errors: ["No Users found"] });
@@ -128,8 +127,8 @@ async function showUser(req, res) {
     }
 
     if (user) {
-        user[0].image = "http://" + req.hostname + ":3000/" + user[0].image;
-        delete user[0].password;
+      user[0].image = "http://" + req.hostname + ":3000/" + user[0].image;
+      delete user[0].password;
       res.status(200).json(user);
     } else {
       res.status(404).json({ errors: ["No users found"] });
@@ -140,11 +139,10 @@ async function showUser(req, res) {
   }
 }
 
-
 module.exports = {
   update,
   deleteU,
   showUsers,
   showUser,
-  updateImage
+  updateImage,
 };

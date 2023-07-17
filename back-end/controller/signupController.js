@@ -20,10 +20,14 @@ schema
 
 async function postSignup(req, res) {
   try {
-    if (! await getEmail(req.body.email)) {
+    if (!(await getEmail(req.body.email))) {
       const flag = await schema.validate(req.body.password);
       if (!flag) {
-        return res.status(400).json({msg: "password should contain : 1 lowercase, 1 uppercase, 2 digits, no spaces, length of 8"});
+        return res
+          .status(400)
+          .json({
+            msg: "password should contain : 1 lowercase, 1 uppercase, 2 digits, no spaces, length of 8",
+          });
       }
       let obj = {
         name: req.body.name,
@@ -34,7 +38,7 @@ async function postSignup(req, res) {
       await insertUser(obj);
       res.end();
     } else {
-      return res.status(400).json({ msg: "Email already exist"});
+      return res.status(400).json({ msg: "Email already exist" });
     }
   } catch (error) {
     console.log(error);
@@ -42,4 +46,3 @@ async function postSignup(req, res) {
 }
 
 module.exports = { postSignup };
-
