@@ -42,7 +42,7 @@
         height: 230px;
         margin: 0 auto;
     }
-    
+
 }
 
 .service-card h3 {
@@ -55,9 +55,9 @@
     .service-card h3 {
         font-size: 1.7rem;
         margin-top: 0.5rem;
-    }   
+    }
 }
 
-.service-card .view-more-btn {
+.service-card .view-more-main-btn {
     align-self: center;
 }

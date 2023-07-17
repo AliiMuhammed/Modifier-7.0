@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-
+import "../../Style/index.css"
 const LoginForm = () => {
   const [validated, setValidated] = useState(false);
   const [username, setUsername] = useState("");
@@ -49,7 +49,9 @@ const LoginForm = () => {
         />
       </Form.Group>
 
-      <Button type="submit">Login</Button>
+      <Button type="submit" className="main-btn login-btn">
+        Login
+      </Button>
     </Form>
   );
 };

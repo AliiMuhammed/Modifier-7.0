@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
 import logo from "../Assest/Images/h-logo.png";
 import "../Style/nav.css";
+import profile from "../Assest/Images/profile.jpg";
+
+// Rest of the code...
 
 const NavBar = () => {
   const location = useLocation();
@@ -43,9 +47,41 @@ const NavBar = () => {
             <Link to="/#contact-us">Contact Us</Link>
           </li>
         </ul>
-        <Link className="btn login-btn" to="/login">
+        <Link className="main-btn login-main-btn" to="/login">
           Login
         </Link>
+
+        {/* <div className="profile">
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown-basic" className="profile-btn">
+              <img src={profile} alt="" />
+            </Dropdown.Toggle>
+            <Dropdown.Menu
+            className="drop-down-profile"
+              style={{
+                transform: "translate(-50%, 0)",
+                top: "100%",
+                left: "50%",
+              }}
+            >
+              <Dropdown.Item href="#/action-1">Your Profile</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item as={Link} to="/logout" className="btn login-btn">
+                Log out
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div> */}
+
+
+          
+
+
+
+
+
+
+
       </div>
     </nav>
   );

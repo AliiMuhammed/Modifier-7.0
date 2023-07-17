@@ -11,9 +11,11 @@ const Header = () => {
             <div className="left">
               <h1>Creating Intelligent Cities, Enhancing Quality of Life</h1>
               <p>
-              Transforming cities with smart solutions. From intelligent parking to sustainable waste management, we create greener, more connected urban environments for a brighter future.
+                Transforming cities with smart solutions. From intelligent
+                parking to sustainable waste management, we create greener, more
+                connected urban environments for a brighter future.
               </p>
-              <Link className="btn hero-btn" to={"#our-services"}>
+              <Link className="main-btn hero-main-btn" to={"#our-services"}>
                 View Our Services
               </Link>
             </div>

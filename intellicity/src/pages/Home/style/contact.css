@@ -1,106 +1,123 @@
-.contact{
+.contact {}
 
-}
-
-.contact .container{
+.contact .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction:column ;
+    flex-direction: column;
 }
-.contact .container .content{
-display: grid;
-grid-template-columns: repeat(2,1fr);
-gap: 5rem;
-margin-top: 5rem;
+
+.contact .container .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    margin-top: 5rem;
 }
+
 @media only screen and (min-width: 992px) and (max-width: 1446px) {
-    .contact .container .content{
+    .contact .container .content {
         display: grid;
         grid-template-columns: 1fr 2fr;
         margin-top: 0;
-        }
-  }
-  @media only screen and  (max-width: 991px) {
-    .contact .container .content{
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .contact .container .content {
         display: grid;
         grid-template-columns: 1fr;
         margin-top: 0;
         width: 100%;
-        }
-  }
-.contact .container .left{
-width: 100%;
+    }
 }
-.contact .container .left img{
+
+.contact .container .left {
     width: 100%;
 }
-@media only screen and  (max-width: 991px) {
-    .contact .container .left{
+
+.contact .container .left img {
+    width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+    .contact .container .left {
         display: none;
-        }
-  }
-.contact .container .right{
+    }
+}
+
+.contact .container .right {
 
     height: 100%;
 
 }
 
-.contact .container .right form .form-group{
+.contact .container .right form .form-group {
     display: flex;
     flex-direction: column-reverse;
     height: 100%;
 }
-.contact .container .right form label{
+
+.contact .container .right form label {
     font-size: 1.5rem;
 }
+
 @media only screen and (max-width: 767px) {
-    .contact .container .right form label{
+    .contact .container .right form label {
         font-size: 1.3rem;
     }
 }
-.contact .container .right form input:not([type=submit]),textarea{
+
+.contact .container .right form input:not([type=submit]),
+textarea {
     outline: none;
     border: 1px solid var(--third-color);
     margin-bottom: 2rem;
     margin-top: 1rem;
     transition: var(--main-transition);
 }
-.contact .container .right form input:not([type=submit]){
+
+.contact .container .right form input:not([type=submit]) {
     padding: 1.5rem;
     color: var(--main-color);
 }
+
 @media only screen and (max-width: 767px) {
-    .contact .container .right form input{
+    .contact .container .right form input {
         padding: 1.3rem;
     }
-    
+
 }
-.contact .container .right form input:focus,textarea:focus{
-    border-color:var(--second-color);
+
+.contact .container .right form input:focus,
+textarea:focus {
+    border-color: var(--second-color);
 }
-.contact .container .right form input:focus + label,
-.contact .container .right form textarea:focus + label {
-  color: var(--main-color);
+
+.contact .container .right form input:focus+label,
+.contact .container .right form textarea:focus+label {
+    color: var(--main-color);
 }
 
 .form-group.focused label {
 
     color: var(--main-color);
-  }
-.contact .container .right form textarea{
+}
+
+.contact .container .right form textarea {
     height: 10rem;
     padding: 1.5rem;
     color: var(--main-color);
 }
+
 @media only screen and (max-width: 767px) {
-    .contact .container .right form textarea{
+    .contact .container .right form textarea {
         padding: 1.3rem;
     }
-    
+
 }
-.contact .container .right form .contact-us-btn{
+
+.contact .container .right form .contact-us-main-btn {
     width: 100%;
     font-size: 1.3rem;
-  
+
 }

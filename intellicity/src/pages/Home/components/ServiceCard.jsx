@@ -4,10 +4,10 @@ function ServiceCard({ img, title, desc }) {
   return (
     <div className="service-card">
       <div className="services-img">
-      <img src={img} alt="serviceImage" />
+        <img src={img} alt="serviceImage" />
       </div>
       <h3>{title}</h3>
-      <Link className="btn view-more-btn" to={"/"}>
+      <Link className="main-btn view-more-main-btn" to={"/"}>
         View More
       </Link>
     </div>

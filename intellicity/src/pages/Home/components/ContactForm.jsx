@@ -67,7 +67,11 @@ function ContactForm() {
         <label htmlFor="message">Message:</label>
       </div>
 
-      <input type="submit" className="btn contact-us-btn" value="Submit" />
+      <input
+        type="submit"
+        className="main-btn contact-us-main-btn"
+        value="Send"
+      />
     </form>
   );
 }
