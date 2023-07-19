@@ -15,7 +15,7 @@ const Header = () => {
                 parking to sustainable waste management, we create greener, more
                 connected urban environments for a brighter future.
               </p>
-              <Link className="main-btn hero-main-btn" to={"#our-services"}>
+              <Link className="main-btn hero-main-btn" to={"/services"}>
                 View Our Services
               </Link>
             </div>

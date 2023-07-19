@@ -38,8 +38,7 @@ async function postSignup(req, res) {
       await insertUser(obj);
       res.end();
     } else {
-      return res.status(400).json({ msg: "Email already exist" });
-    }
+      res.status(400).json({ errors: [{ msg: "Email already exists!" }] });    }
   } catch (error) {
     console.log(error);
   }

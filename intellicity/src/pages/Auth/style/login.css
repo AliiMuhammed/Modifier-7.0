@@ -96,7 +96,7 @@ svg {
     width: 100%;
 }
 
-.login .container .content .right form div {
+.login .container .content .right form > div {
     width: 70%;
     margin-bottom: 2rem;
 

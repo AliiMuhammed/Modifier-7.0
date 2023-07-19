@@ -6,6 +6,7 @@ import Login from "./pages/Auth/Login";
 import Sign from "./pages/Auth/SignUp";
 import NotFound from "./Shared/NotFound"
 import App from "./App";
+import Services from "./pages/Services/Services";
 
 export const routes = createBrowserRouter([
  {
@@ -19,7 +20,11 @@ export const routes = createBrowserRouter([
     {
       path: "/sign-up",
       element: <Sign/>,
-    },
+    },{
+      path:"/services",
+      element:<Services/>
+
+    }
   ],
   errorElement:<NotFound/>
 },    {

@@ -24,6 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("upload"));
+var cors = require("cors");
+app.use(cors()); // Enable CORS for all routes
+app.options("*", cors()); // Enable pre-flight request handling for all routes
 
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
@@ -48,5 +51,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+
 
 module.exports = app;

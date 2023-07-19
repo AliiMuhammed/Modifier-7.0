@@ -1,40 +1,40 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import "../../Style/index.css"
+import "../../Style/index.css";
+import { Alert } from "react-bootstrap";
+import axios from "axios";
+
 const LoginForm = () => {
-  const [validated, setValidated] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+    loading: false,
+    err: [],
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.currentTarget;
-
-    if (form.checkValidity()) {
-      // Perform login authentication logic here
-      console.log("Username:", username);
-      console.log("Password:", password);
-    }
-
-    setValidated(true);
+    setLogin({ ...login, loading: true, err: [] });
+    axios.post("http://localhost:5000/login", {
+      email: login.email,
+      password: login.password,
+    }).then(resp=>{
+      console.log("succses")
+      setLogin({ ...login, loading: false, err: [] });
+    }).catch(err=>{
+      console.log(err)
+      setLogin({ ...login, loading: false, err:[] });
+    })
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-      <Form.Group controlId="username">
+    <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="email">
         <Form.Control
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={handleUsernameChange}
+          type="email"
+          placeholder="Email"
+          value={login.email}
+          onChange={(e) => setLogin({ ...login, email: e.target.value })}
           required
         />
       </Form.Group>
@@ -43,12 +43,11 @@ const LoginForm = () => {
         <Form.Control
           type="password"
           placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
+          value={login.password}
+          onChange={(e) => setLogin({ ...login, password: e.target.value })}
           required
         />
       </Form.Group>
-
       <Button type="submit" className="main-btn login-btn">
         Login
       </Button>
