@@ -17,7 +17,7 @@ async function update(req, res) {
 
     const service = await getServiceById(req.params.id);
     if (!service[0]) {
-      return res.status(404).json({ errors: ["Service not found"] });
+      return res.status(404).json({ errors: [{msg:"Service not found"}] });
     }
 
     const serviceObj = {
@@ -40,7 +40,7 @@ async function update(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -73,7 +73,7 @@ async function create(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -86,7 +86,7 @@ async function deleteS(req, res) {
 
     const service = await getServiceById(req.params.id);
     if (!service[0]) {
-      return res.status(404).json({ errors: ["Service not found"] });
+      return res.status(404).json({ errors: [{msg:"Service not found"}] });
     }
 
     fs.unlinkSync("./upload/" + service[0].img);
@@ -98,7 +98,7 @@ async function deleteS(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -112,11 +112,11 @@ async function showServices(req, res) {
 
       res.status(200).json(services);
     } else {
-      res.status(404).json({ errors: ["No Services found"] });
+      res.status(404).json({ errors: [{msg:"No Services found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -124,18 +124,18 @@ async function showService(req, res) {
   try {
     const service = await getServiceById(req.params.id);
     if (!service[0]) {
-      return res.status(404).json({ errors: ["Service not found"] });
+      return res.status(404).json({ errors: [{msg:"Service not found"}] });
     }
 
     if (service) {
       service[0].img = "http://" + req.hostname + ":5000/" + service[0].img;
       res.status(200).json(service);
     } else {
-      res.status(404).json({ errors: ["No Services found"] });
+      res.status(404).json({ errors: [{msg:"No Services found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 

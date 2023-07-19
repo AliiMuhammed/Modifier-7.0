@@ -29,7 +29,7 @@ async function create(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -42,7 +42,7 @@ async function deleteM(req, res) {
 
     const message = await getmessageById(req.params.id);
     if (!message[0]) {
-      return res.status(404).json({ errors: ["Message not found"] });
+      return res.status(404).json({ errors: [{msg:"Message not found"}] });
     }
 
     await deleteMessage(message[0].id);
@@ -52,7 +52,7 @@ async function deleteM(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -62,11 +62,11 @@ async function showmessages(req, res) {
     if (messages) {
       res.status(200).json(messages);
     } else {
-      res.status(404).json({ errors: ["No Messages found"] });
+      res.status(404).json({ errors: [{msg:"No Messages found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 

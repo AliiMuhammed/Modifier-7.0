@@ -17,7 +17,7 @@ async function update(req, res) {
 
     const member = await getMemberById(req.params.id);
     if (!member[0]) {
-      return res.status(404).json({ errors: ["Member not found"] });
+      return res.status(404).json({ errors: [{msg:"Member not found"}] });
     }
 
     const memberObj = {
@@ -40,7 +40,7 @@ async function update(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -73,7 +73,7 @@ async function create(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -86,7 +86,7 @@ async function deleteM(req, res) {
 
     const member = await getMemberById(req.params.id);
     if (!member[0]) {
-      return res.status(404).json({ errors: ["Member not found"] });
+      return res.status(404).json({ errors: [{msg:"Member not found"}] });
     }
 
     fs.unlinkSync("./upload/" + member[0].member_img);
@@ -98,7 +98,7 @@ async function deleteM(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -112,11 +112,11 @@ async function showMembers(req, res) {
 
       res.status(200).json(members);
     } else {
-      res.status(404).json({ errors: ["No members found"] });
+      res.status(404).json({ errors: [{msg:"No members found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -124,18 +124,18 @@ async function showMember(req, res) {
   try {
     const member = await getMemberById(req.params.id);
     if (!member[0]) {
-      return res.status(404).json({ errors: ["Member not found"] });
+      return res.status(404).json({ errors: [{msg:"Member not found"}] });
     }
 
     if (member) {
       member[0].member_img = "http://" + req.hostname + ":5000/" + member[0].member_img;
       res.status(200).json(member);
     } else {
-      res.status(404).json({ errors: ["No members found"] });
+      res.status(404).json({ errors: [{msg:"No members found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 

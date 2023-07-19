@@ -18,7 +18,7 @@ async function update(req, res) {
 
     const user = await getUserById(req.params.id);
     if (!user[0]) {
-      return res.status(404).json({ errors: ["User not found"] });
+      return res.status(404).json({ errors: [{msg:"User not found"}] });
     }
 
     const userObj = {
@@ -42,7 +42,7 @@ async function update(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -50,7 +50,7 @@ async function updateImage(req, res) {
   try {
     const user = await getUserById(req.params.id);
     if (!user[0]) {
-      return res.status(404).json({ errors: ["User not found"] });
+      return res.status(404).json({ errors: [{msg:"User not found"}] });
     }
     let userObj = {
       image: req.file.filename,
@@ -66,12 +66,12 @@ async function updateImage(req, res) {
 
     await updateimage(user[0].id, userObj);
 
-    res.status(200).json({
+    res.status(200).json({errors:[{
       msg: "Image updated",
-    });
+    }]});
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -111,11 +111,11 @@ async function showUsers(req, res) {
       delete users.password;
       res.status(200).json(users);
     } else {
-      res.status(404).json({ errors: ["No Users found"] });
+      res.status(404).json({ errors: [{msg:"No Users found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -123,7 +123,7 @@ async function showUser(req, res) {
   try {
     const user = await getUserById(req.params.id);
     if (!user[0]) {
-      return res.status(404).json({ errors: ["User not found"] });
+      return res.status(404).json({ errors: [{msg:"User not found"}] });
     }
 
     if (user) {
@@ -131,11 +131,11 @@ async function showUser(req, res) {
       delete user[0].password;
       res.status(200).json(user);
     } else {
-      res.status(404).json({ errors: ["No users found"] });
+      res.status(404).json({ errors: [{msg:"No users found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
