@@ -177,6 +177,7 @@ function ContactForm() {
         type="submit"
         className="main-btn contact-us-main-btn"
         value="Send"
+
       />
     </form>
   );

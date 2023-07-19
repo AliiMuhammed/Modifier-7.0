@@ -242,7 +242,7 @@ section {
 
 /*==========================alert======================================*/
 .alert-container.container {
-
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,4 +262,20 @@ section {
 .error{
   color: red;
   padding-bottom:2rem ;
+}
+
+
+/*==========================scroll-btn======================================*/
+
+.scroll-to-top.scroll-btn{
+  background-color: var(--second-color) ;
+
+}
+.scroll-to-top.scroll-btn svg{
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }

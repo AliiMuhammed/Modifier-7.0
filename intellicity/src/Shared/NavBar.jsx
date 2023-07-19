@@ -47,9 +47,14 @@ const NavBar = () => {
             <Link to="/#contact-us">Contact Us</Link>
           </li>
         </ul>
-        <Link className="main-btn login-main-btn" to="/login">
-          Login
-        </Link>
+        <div className="nav-btns">
+          <Link className="main-btn login-main-btn" to="/login">
+            Login
+          </Link>
+          <Link className="main-btn sign-main-btn" to="/sign-up">
+            Sign Up
+          </Link>
+        </div>
 
         {/* <div className="profile">
           <Dropdown>
@@ -72,16 +77,6 @@ const NavBar = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div> */}
-
-
-          
-
-
-
-
-
-
-
       </div>
     </nav>
   );
