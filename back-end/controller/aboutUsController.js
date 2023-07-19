@@ -107,7 +107,7 @@ async function showMembers(req, res) {
     const members = await showmembers();
     if (members) {
       members.map((member) => {
-        member.member_img = "http://" + req.hostname + ":3000/" + member.member_img;
+        member.member_img = "http://" + req.hostname + ":5000/" + member.member_img;
       });
 
       res.status(200).json(members);
@@ -128,7 +128,7 @@ async function showMember(req, res) {
     }
 
     if (member) {
-      member[0].member_img = "http://" + req.hostname + ":3000/" + member[0].member_img;
+      member[0].member_img = "http://" + req.hostname + ":5000/" + member[0].member_img;
       res.status(200).json(member);
     } else {
       res.status(404).json({ errors: ["No members found"] });

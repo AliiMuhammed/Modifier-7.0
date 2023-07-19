@@ -105,7 +105,7 @@ async function showUsers(req, res) {
     const users = await showusers();
     if (users) {
       users.map((user) => {
-        user.image_url = "http://" + req.hostname + ":3000/" + user.image;
+        user.image_url = "http://" + req.hostname + ":5000/" + user.image;
         delete user.password;
       });
       delete users.password;
@@ -127,7 +127,7 @@ async function showUser(req, res) {
     }
 
     if (user) {
-      user[0].image = "http://" + req.hostname + ":3000/" + user[0].image;
+      user[0].image = "http://" + req.hostname + ":5000/" + user[0].image;
       delete user[0].password;
       res.status(200).json(user);
     } else {

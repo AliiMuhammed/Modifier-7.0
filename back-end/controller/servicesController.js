@@ -107,7 +107,7 @@ async function showServices(req, res) {
     const services = await showservices();
     if (services) {
       services.map((service) => {
-        service.img = "http://" + req.hostname + ":3000/" + service.img;
+        service.img = "http://" + req.hostname + ":5000/" + service.img;
       });
 
       res.status(200).json(services);
@@ -128,7 +128,7 @@ async function showService(req, res) {
     }
 
     if (service) {
-      service[0].img = "http://" + req.hostname + ":3000/" + service[0].img;
+      service[0].img = "http://" + req.hostname + ":5000/" + service[0].img;
       res.status(200).json(service);
     } else {
       res.status(404).json({ errors: ["No Services found"] });

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import parkingImg from "../../../Assest/Images/services/parking.png";
-import recycleImg from "../../../Assest/Images/services/recycle.png";
-import powerImg from "../../../Assest/Images/services/power.png";
-import transImg from "../../../Assest/Images/services/transport.png";
+import Spinner from "react-bootstrap/Spinner";
+import axios from "axios";
+import Alert from "react-bootstrap/Alert";
 import "../style/services.css";
 
 import MainHeading from "../../../Shared/MainHeading";
@@ -29,12 +28,33 @@ function OurServices() {
       items: 1,
     },
   };
-  return (
-    <section className="our-services" id="our-services">
-      <div className="container">
-        <div className="heading">
-          <MainHeading haeding={"our services"} />
-        </div>
+
+  const [service, setService] = useState({
+    loading: false,
+    results: [],
+    err: null,
+    reload: 0,
+  });
+
+  useEffect(() => {
+    setService({ ...service, loading: true });
+    axios
+      .get("http://localhost:5000/services/getAll")
+      .then((resp) => {
+        setService({ ...service, results: resp.data, loading: false });
+      })
+      .catch((err) => {
+        setService({
+          ...service,
+          loading: false,
+          err: "Error can't load Services",
+        });
+      });
+  }, [service.reload]);
+  console.log(service.results);
+  const displayServices = () => {
+    return (
+      <>
         <Carousel
           responsive={responsive}
           arrows={true}
@@ -43,11 +63,44 @@ function OurServices() {
           partialVisible={true}
           className="services-slider"
         >
-          <ServiceCard img={recycleImg} title={"EcoCycle"} />
-          <ServiceCard img={parkingImg} title={"ParkSense"} />
-          <ServiceCard img={powerImg} title={"EnSmart"} />
-          <ServiceCard img={transImg} title={"MobiliCity"} />
+          {service.results.map((serv) => {
+            return (
+              <ServiceCard key={serv.id} img={serv.img} title={serv.name} />
+            );
+          })}
         </Carousel>
+      </>
+    );
+  };
+
+  return (
+    <section className="our-services" id="our-services">
+      <div className="container">
+        <div className="heading">
+          <MainHeading haeding={"our services"} />
+        </div>
+        {/* displayCourses */}
+        {service.loading === false &&
+          service.err === null &&
+          service.results.length !== 0 && <>{displayServices()}</>}
+
+        {/* errors handling */}
+        {service.loading === false && service.err != null && (
+          <div className="alert-container container">
+            <Alert variant="danger" className="alret">
+              {service.err}
+            </Alert>
+          </div>
+        )}
+        {service.loading === false &&
+          service.err == null &&
+          service.results.length === 0 && (
+            <div className="alert-container container">
+              <Alert className="alret-notAvailable">
+                There is no services available please come back later
+              </Alert>
+            </div>
+          )}
       </div>
     </section>
   );
