@@ -19,7 +19,7 @@ async function create(req, res) {
 
     const user = await getUserById(req.params.user_id);
     if (!user[0]) {
-      return res.status(404).json({ errors: ["User not found"] });
+      return res.status(404).json({ errors: [{msg:"User not found"}] });
     }
     // INSERT NEW Feedback
     const feedData = {
@@ -36,7 +36,7 @@ async function create(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -49,7 +49,7 @@ async function deleteFeed(req, res) {
 
     const feedback = await getFeedById(req.params.id);
     if (!feedback[0]) {
-      return res.status(404).json({ errors: ["Feedback not found"] });
+      return res.status(404).json({ errors: [{msg:"Feedback not found"}] });
     }
 
     await deleteFeedback(feedback[0].id);
@@ -59,7 +59,7 @@ async function deleteFeed(req, res) {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
@@ -69,11 +69,11 @@ async function showFeeds(req, res) {
     if (feedbacks) {
       res.status(200).json(feedbacks);
     } else {
-      res.status(404).json({ errors: ["No Feedback found"] });
+      res.status(404).json({ errors: [{msg:"No Feedback found"}] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["Internal server error"] });
+    res.status(500).json({ errors: [{msg:"Internal server error"}] });
   }
 }
 
