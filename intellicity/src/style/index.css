@@ -259,3 +259,7 @@ section {
   color: #fff;
   border-color:var(--third-color) ;
 }
+.error{
+  color: red;
+  padding-bottom:2rem ;
+}

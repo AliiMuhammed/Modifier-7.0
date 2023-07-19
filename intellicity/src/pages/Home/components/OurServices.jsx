@@ -51,7 +51,7 @@ function OurServices() {
         });
       });
   }, [service.reload]);
-  console.log(service.results);
+
   const displayServices = () => {
     return (
       <>
@@ -79,7 +79,13 @@ function OurServices() {
         <div className="heading">
           <MainHeading haeding={"our services"} />
         </div>
-        {/* displayCourses */}
+        {/* loader..... */}
+        {service.loading === true && (
+          <div className="loader-dev">
+            <Spinner animation="grow" className="loader" />
+          </div>
+        )}
+        {/* displayServices */}
         {service.loading === false &&
           service.err === null &&
           service.results.length !== 0 && <>{displayServices()}</>}

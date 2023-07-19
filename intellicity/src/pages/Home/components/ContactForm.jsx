@@ -1,10 +1,22 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { Alert } from "react-bootstrap";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    success: "",
+    loading: false,
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+    loading: false,
+    err:""
   });
 
   const handleChange = (e) => {
@@ -18,15 +30,108 @@ function ContactForm() {
   const handleBlur = (e) => {
     e.target.parentNode.classList.remove("focused");
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Process form data or send it to the server
-    console.log(formData);
+    setFormData({ ...formData, loading: true });
+    setFormErrors({ ...formErrors, loading: true });
+    if (validateForm()) {
+      axios
+        .post("http://localhost:5000/contact/create", formData)
+        .then((response) => {
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+            success: response.data,
+            loading: false,
+          });
+          
+          setFormErrors({
+            name: "",
+            email: "",
+            message: "",
+            loading: false,
+            err:""
+          });
+        })
+        .catch((error) => {
+          setFormData({
+            name: "",
+            email: "",
+            message: "",
+            success: "",
+            loading: false,
+          });
+          
+          setFormErrors({
+            name: "",
+            email: "",
+            message: "",
+            loading: false,
+            err:"Something went wrong please try again later"
+          });
+        });
+    }
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const errors = {
+      name: "",
+      email: "",
+      message: "",
+    };
+
+    if (formData.name.trim() === "") {
+      errors.name = "Name is required";
+      isValid = false;
+    }
+
+    if (formData.email.trim() === "") {
+      errors.email = "Email is required";
+      isValid = false;
+    } else if (!isValidEmail(formData.email)) {
+      errors.email = "Invalid email address";
+      isValid = false;
+    }
+
+    if (formData.message.trim() === "") {
+      errors.message = "Message is required";
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={`form-group ${formData.name && "focused"}`}>
+
+      {/* success handling */}
+      {formData.loading === false && formData.success !== "" && (
+        <div className="alert-container ">
+          <Alert variant="success" className="alert">
+            {formData.success.msg}
+          </Alert>
+        </div>
+      )}
+      {/* formErrors handling */}
+      {formErrors.loading === false && formErrors.err !== "" && (
+        <div className="alert-container ">
+          <Alert variant="danger" className="alert">
+            {formErrors.err}
+          </Alert>
+        </div>
+      )}
+
+<div className={`form-group ${formData.name && "focused"}`}>
+        {formErrors.name && <span className="error">{formErrors.name}</span>}
         <input
           type="text"
           id="name"
@@ -35,12 +140,12 @@ function ContactForm() {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          required
         />
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Name</label>
       </div>
 
       <div className={`form-group ${formData.email && "focused"}`}>
+        {formErrors.email && <span className="error">{formErrors.email}</span>}
         <input
           type="email"
           id="email"
@@ -49,12 +154,14 @@ function ContactForm() {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          required
         />
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email</label>
       </div>
 
       <div className={`form-group ${formData.message && "focused"}`}>
+        {formErrors.message && (
+          <span className="error">{formErrors.message}</span>
+        )}
         <textarea
           id="message"
           name="message"
@@ -62,9 +169,8 @@ function ContactForm() {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          required
         ></textarea>
-        <label htmlFor="message">Message:</label>
+        <label htmlFor="message">Message</label>
       </div>
 
       <input
