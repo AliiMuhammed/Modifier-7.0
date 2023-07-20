@@ -1,33 +1,87 @@
-.team-section{
-width: 100%;
+.team-section {
+    width: 100%;
 }
-.team-section .container{
-    
-}
-.team-section .container .cards{
+
+.team-section .container {}
+
+.team-section .container .cards {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100%;
 }
-.team-section .container .cards .member-card{
+
+.team-section .container .cards .member-card {
     display: flex;
     padding: 2rem;
     justify-content: center;
     flex-direction: column;
-    border: 2px dashed var(--second-color);
+    border: 2px dashed var(--third-color);
+    margin: 1rem 0;
+    border-radius: 1rem;
+    transition: var(--main-transition);
 }
-.team-section .container .cards .member-card .content{
+
+.team-section .container .cards .member-card:hover {
+    border-color: var(--second-color);
+}
+
+.team-section .container .cards .member-card .content {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     gap: 0;
 }
-.team-section .container .cards .member-card .member-img{
-    width: 250px;
+
+.team-section .container .cards .member-card .content h3 {
+    margin: 1rem 0;
+    color: var(--main-color);
+    transition: var(--main-transition);
 }
-.team-section .container .cards .member-card .member-img img{
-width: 100%;
+
+.team-section .container .cards .member-card .content span {
+    color: var(--main-color);
+    font-size: 1.5rem;
+    transition: var(--main-transition);
+}
+
+.team-section .container .cards .member-card .content .links {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.team-section .container .cards .member-card .content .links a {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.team-section .container .cards .member-card:hover .content .links a,
+.team-section .container .cards .member-card:hover .content span, 
+.team-section .container .cards .member-card:hover .content h3{
+color: var(--second-color);
+}
+.team-section .container .cards .member-card .member-img {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.team-section .container .cards .member-card:hover .member-img img {
+    width: 250px;
+    border-radius: 50%;
+    transition: var(--main-transition);
+}
+
+.team-section .container .cards .member-card .member-img img {
+    width: 100%;
+    transition: var(--main-transition);
 }

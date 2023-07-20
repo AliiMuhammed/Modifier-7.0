@@ -121,3 +121,37 @@ textarea:focus {
     font-size: 1.3rem;
 
 }
+
+.social-media .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.social-media .container .links{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+}
+.social-media .container .links .link{
+
+}
+.social-media .container .links .link a{
+    color: #fff;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--second-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition:var(--main-transition) ;
+    border: 1px solid var(--second-color);
+}
+.social-media .container .links .link:hover a{
+    color: var(--main-color);
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+}
+

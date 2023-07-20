@@ -79,7 +79,7 @@ function Services() {
               <Spinner animation="grow" className="loader" />
             </div>
           )}
-          {/* displayCourses */}
+          {/* displayServices */}
           {service.loading === false &&
             service.err === null &&
             service.results.length !== 0 && <>{displayServices()}</>}

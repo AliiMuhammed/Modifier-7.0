@@ -8,6 +8,7 @@ import NotFound from "./Shared/NotFound"
 import App from "./App";
 import Services from "./pages/Services/Services";
 import About from "./pages/AboutUs/About";
+import ContactUs from "./pages/ContactUs/ContactUs";
 
 export const routes = createBrowserRouter([
  {
@@ -27,6 +28,9 @@ export const routes = createBrowserRouter([
     },{
       path:"/about-us",
       element:<About/>
+    },{
+      path:"/contact-us",
+      element:<ContactUs/>
     }
   ],
   errorElement:<NotFound/>
