@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, NavLink } from "react-router-dom";
-import { Dropdown } from "react-bootstrap";
 import logo from "../Assest/Images/h-logo.png";
 import "../Style/nav.css";
 import profile from "../Assest/Images/profile.jpg";
@@ -87,14 +86,14 @@ const NavBar = () => {
             <>
               <li className="profile-circle">
                 <div className="profile">
-                  <NavLink to={"/profile" + "/" + auth.type}>
+                  <NavLink to={"/profile/" + auth.type}>
                     <img src={profile} alt="" />
                   </NavLink>
                 </div>
               </li>
               <li className={"profile-link"}>
                 <NavLink
-                  to={"/profile" + "/" + auth.type}
+                  to={"/profile/" + auth.type}
                   onClick={() => setIsNavShowing((prev) => !prev)}
                 >
                   My Profile
