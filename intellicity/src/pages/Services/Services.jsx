@@ -8,8 +8,7 @@ function Services() {
   const [service, setService] = useState({
     loading: false,
     results: [],
-    err: null,
-  });
+    err: null,});
 
   useEffect(() => {
     setService({ ...service, loading: true });
@@ -25,7 +24,7 @@ function Services() {
           err: "Error can't load Services",
         });
       });
-  }, []);
+  }, [service.reload]);
 
   const displayServices = () => {
     return (
