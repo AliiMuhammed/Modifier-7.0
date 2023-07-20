@@ -22,8 +22,10 @@ async function update(req, res) {
 
     const memberObj = {
         member_Name: req.body.member_Name,
-        description: req.body.description,
+        linkedin: req.body.linkedin,
+        gitHub: req.body.gitHub,
         member_Role: req.body.member_Role,
+        position: req.body.position
     };
 
     if (req.file) {
@@ -61,9 +63,11 @@ async function create(req, res) {
     // INSERT NEW Member
     const memberData = {
       member_Name: req.body.member_Name,
-      description: req.body.description,
+      linkedin: req.body.linkedin,
+      gitHub: req.body.gitHub,
       member_Role: req.body.member_Role,
       member_img: req.file.filename,
+      position: req.body.position
     };
 
     await createMember(memberData);

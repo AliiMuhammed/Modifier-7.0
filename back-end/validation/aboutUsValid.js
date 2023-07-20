@@ -6,11 +6,8 @@ const upload= require('../middleware/uploadFiles')
       body("member_Name")
         .isString()
         .withMessage("Please enter a valid name"),
-      body("description")
-        .isString()
-        .withMessage("Please enter a valid description")
-        .isLength({ min: 20 })
-        .withMessage("Description must be at least 20 characters"),
+      body("linkedin").isURL().withMessage("Please enter a valid linkedin URL"),
+      body("gitHub").isURL().withMessage("Please enter a valid gitHub URL"),
       body("member_Role"),
       (req, res, next) => {
         const errors = validationResult(req);
