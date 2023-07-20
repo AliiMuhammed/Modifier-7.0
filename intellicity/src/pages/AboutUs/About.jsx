@@ -1,8 +1,10 @@
 import React from "react";
-import "./style/about.css"
+import "./style/about.css";
 import MainHeader from "../../Shared/MainHeader";
-import image from "../../Assest/Images/About/About-us.jpg"
+import image from "../../Assest/Images/About/About-us.jpg";
 import Team from "./components/Team";
+import OurServices from "../../Shared/OurServices";
+import OurLocation from "./components/OurLocation"
 function About() {
   return (
     <>
@@ -44,13 +46,14 @@ function About() {
               </p>
             </div>
             <div className="right">
-                <img src={image} alt="about-img" />
+              <img src={image} alt="about-img" />
             </div>
           </div>
-          <p>testtttttttttttttttttttttttttt</p>
-          <Team/>
+          <Team />
         </div>
       </section>
+      <OurServices />
+      <OurLocation/>
     </>
   );
 }

@@ -52,7 +52,7 @@ const NavBar = () => {
     {
       id: 4,
       name: "Contact Us",
-      path: "/#contact-us",
+      path: "/contact-us",
     },
   ];
 

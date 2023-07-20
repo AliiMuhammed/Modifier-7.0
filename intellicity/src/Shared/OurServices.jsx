@@ -4,10 +4,10 @@ import "react-multi-carousel/lib/styles.css";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
-import "../style/services.css";
+import "../Style/services.css";
 
-import MainHeading from "../../../Shared/MainHeading";
-import ServiceCard from "./ServiceCard";
+import MainHeading from "./MainHeading";
+import ServiceCard from "../pages/Home/components/ServiceCard";
 function OurServices() {
   const responsive = {
     superLargeDesktop: {

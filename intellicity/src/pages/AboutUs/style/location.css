@@ -1,0 +1,17 @@
+.location{
+
+}
+.location .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.location .container .map{
+    width: 100%;
+}
+.location .container .map iframe{
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
