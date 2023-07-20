@@ -26,10 +26,14 @@ async function update(req, res) {
         status: req.body.status,
     };
 
-    if (req.file) {
-      serviceObj.img = req.file.filename;
+    if (req.files) {
       if (service && service.img) {
         fs.unlinkSync("../upload/" + service[0].img);
+        serviceObj.img = req.files.img[0].filename;
+      }
+      if (service && service.video) {
+        fs.unlinkSync("../upload/" + service[0].video);
+        serviceObj.video = req.files.video[0].filename;
       }
     }
 
@@ -51,10 +55,10 @@ async function create(req, res) {
       return res.status(400).json({ errors: "error" });
     }
 
-    if (!req.file) {
+    if (!req.files) {
       // Check if image file exists
       return res.status(400).json({
-        errors: [{ msg: "Image is Required" }],
+        errors: [{ msg: "Image or video is Required" }],
       });
     }
 
@@ -63,7 +67,8 @@ async function create(req, res) {
       name: req.body.name,
       description: req.body.description,
       status: req.body.status,
-      img: req.file.filename,
+      img: req.files.img[0].filename, // Use the filename of the uploaded image
+      video: req.files.video[0].filename,
     };
 
     await createService(serviceData);
@@ -90,6 +95,7 @@ async function deleteS(req, res) {
     }
 
     fs.unlinkSync("./upload/" + service[0].img);
+    fs.unlinkSync("./upload/" + service[0].video);
 
     await deleteService(service[0].id);
 
@@ -107,7 +113,8 @@ async function showServices(req, res) {
     const services = await showservices();
     if (services) {
       services.map((service) => {
-        service.img = "http://" + req.hostname + ":5000/" + service.img;
+        service.img = "http://" + req.hostname + ":5000/" + service.img
+        service.video = "http://" + req.hostname + ":5000/" + service.video;
       });
 
       res.status(200).json(services);
@@ -129,6 +136,7 @@ async function showService(req, res) {
 
     if (service) {
       service[0].img = "http://" + req.hostname + ":5000/" + service[0].img;
+      service[0].video = "http://" + req.hostname + ":5000/" + service[0].video;
       res.status(200).json(service);
     } else {
       res.status(404).json({ errors: [{msg:"No Services found"}] });
