@@ -26,15 +26,20 @@ async function postSignup(req, res) {
         return res
           .status(400)
           .json({
+            errors:[{
             msg: "password should contain : 1 lowercase, 1 uppercase, 2 digits, no spaces, length of 8",
-          });
+      }]});
       }
       let obj = {
         name: req.body.name,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        phone: req.body.phone,
+        phone: req.body.phone
       };
+      if(req.body.type)
+      {
+        obj.type = req.body.type;
+      }
       await insertUser(obj);
       res.end();
     } else {

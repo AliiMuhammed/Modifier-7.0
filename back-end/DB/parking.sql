@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2023 at 09:57 PM
+-- Generation Time: Jul 20, 2023 at 02:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,16 +32,17 @@ CREATE TABLE `aboutus` (
   `member_Name` varchar(255) NOT NULL,
   `member_Role` varchar(255) NOT NULL,
   `member_img` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `linkedin` varchar(255) NOT NULL,
+  `gitHub` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `aboutus`
 --
 
-INSERT INTO `aboutus` (`id`, `member_Name`, `member_Role`, `member_img`, `description`) VALUES
-(1, 'Abdo Hassan', 'Admin', '1689551058133.jpg', 'sffdsxscscvxcvcfbcxbfxbcbmn'),
-(2, 'Abdo', 'admin', '1689551069125.jpg', 'gcfhvbmnkbhjnmzsxdcfvhgbjntybn');
+INSERT INTO `aboutus` (`id`, `member_Name`, `member_Role`, `member_img`, `linkedin`, `gitHub`) VALUES
+(1, 'Abdo Hassan', 'Admin', '1689551058133.jpg', '', ''),
+(2, 'Abdo', 'admin', '1689551069125.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -126,17 +127,20 @@ CREATE TABLE `users` (
   `last-dest` varchar(255) NOT NULL,
   `last-date` date NOT NULL,
   `last-cost` int(11) NOT NULL,
-  `time-notficaition` varchar(255) NOT NULL
+  `time-notficaition` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `image`, `last-dest`, `last-date`, `last-cost`, `time-notficaition`) VALUES
-(2, 'Abdo', 'ah@gmail.com', '$2b$10$YKyUaLE3cbNpdMxUqUg10uQBfCVwcaj7xLiPiBWH98hofauFnF5se', 1210201342, '1689287590602.jpg', '', '0000-00-00', 0, ''),
-(3, 'Abdo', 'ah1@gmail.com', '$2b$10$iKMQpMsXqSk418N/WCiNTOedACsSyYZEWfZ5JoO9PhWXE46A/VrTe', 1210201342, '', '', '0000-00-00', 0, ''),
-(4, 'Abdo', 'ah2@gmail.com', '$2b$10$tTMrK4/BQCjW18C5ljXAx.5wBsM0FuwWPRBNBcsvazo0EmhlnV9O2', 1210201342, '', '', '0000-00-00', 0, '');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `image`, `last-dest`, `last-date`, `last-cost`, `time-notficaition`, `type`) VALUES
+(2, 'Abdo', 'ah@gmail.com', '$2b$10$YKyUaLE3cbNpdMxUqUg10uQBfCVwcaj7xLiPiBWH98hofauFnF5se', 1210201342, '1689287590602.jpg', '', '0000-00-00', 0, '', 'user'),
+(3, 'Abdo', 'ah1@gmail.com', '$2b$10$iKMQpMsXqSk418N/WCiNTOedACsSyYZEWfZ5JoO9PhWXE46A/VrTe', 1210201342, '', '', '0000-00-00', 0, '', 'user'),
+(4, 'Abdo', 'ah2@gmail.com', '$2b$10$tTMrK4/BQCjW18C5ljXAx.5wBsM0FuwWPRBNBcsvazo0EmhlnV9O2', 1210201342, '', '', '0000-00-00', 0, '', 'user'),
+(5, 'Abdo', 'a2@gmail.com', '$2b$10$ypYCcDwRlEVaZJsJNOlL2.TgN1.oXCM7Grfu0dNj1bq21o3RRHHAq', 1210201342, '', '', '0000-00-00', 0, '', 'user'),
+(6, 'Abdo', 'a@gmail.com', '$2b$10$XkD0sFNNPoK1k5ip2mg.BOdchILaY1nrbZ6UggPNwfq.vKdmZ1hIy', 1210201342, '', '', '0000-00-00', 0, '', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -205,7 +209,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

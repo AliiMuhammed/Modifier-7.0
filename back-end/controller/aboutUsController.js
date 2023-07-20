@@ -67,7 +67,6 @@ async function create(req, res) {
       gitHub: req.body.gitHub,
       member_Role: req.body.member_Role,
       member_img: req.file.filename,
-      position: req.body.position
     };
 
     await createMember(memberData);
