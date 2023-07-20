@@ -9,7 +9,7 @@ function Services() {
     loading: false,
     results: [],
     err: null,
-    reload: 0,
+
   });
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Services() {
           err: "Error can't load Services",
         });
       });
-  }, [service.reload]);
+  }, []);
 
   const displayServices = () => {
     return (

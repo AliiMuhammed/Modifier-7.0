@@ -26,9 +26,8 @@ async function postSignup(req, res) {
         return res
           .status(400)
           .json({
-            errors:[{
-            msg: "password should contain : 1 lowercase, 1 uppercase, 2 digits, no spaces, length of 8",
-      }]});
+             errors: [{ msg: "password should contain : 1 lowercase, 1 uppercase, 2 digits, no spaces, length of 8"}] 
+          });
       }
       let obj = {
         name: req.body.name,
