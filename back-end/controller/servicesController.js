@@ -138,7 +138,8 @@ async function showService(req, res) {
       service[0].img = "http://" + req.hostname + ":5000/" + service[0].img;
       service[0].video = "http://" + req.hostname + ":5000/" + service[0].video;
       res.status(200).json(service);
-    } else {
+    } 
+    else {
       res.status(404).json({ errors: [{msg:"No Services found"}] });
     }
   } catch (err) {
