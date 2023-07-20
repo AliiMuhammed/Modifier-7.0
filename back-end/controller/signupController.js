@@ -33,8 +33,12 @@ async function postSignup(req, res) {
         name: req.body.name,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        phone: req.body.phone,
+        phone: req.body.phone
       };
+      if(req.body.type)
+      {
+        obj.type = req.body.type;
+      }
       await insertUser(obj);
       res.end();
     } else {
