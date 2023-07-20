@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const [sign, setSign] = useState({
-    name: "", // Add name property to the state
+    name: "",
     email: "",
     password: "",
-    phoneNumber: "", // Add phoneNumber property to the state
+    phoneNumber: "",
     loading: false,
     err: [],
+    success: "",
   });
 
   const handleSubmit = (e) => {
@@ -23,23 +27,33 @@ const SignUpForm = () => {
         phone: sign.phoneNumber,
       })
       .then((resp) => {
-        console.log("success");
-        setSign({ ...sign, loading: false, err: [] });
+        setSign({
+          ...sign,
+          loading: false,
+          err: [],
+          success:
+            "Congratulations! You have successfully signed up. Welcome aboard!, Redirecting to login page in 5 seconds.",
+        });
+        // Navigate to the login page after 5 seconds
+        setTimeout(() => {
+          navigate("/login");
+        }, 5000);
       })
       .catch((err) => {
-        console.log(err);
         setSign({ ...sign, loading: false, err: err.response.data.errors });
       });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-       {sign.err.map((error, index) => (
+      {/* errors handling */}
+      {sign.err.map((error, index) => (
         <Alert key={index} variant="danger">
           {error.msg}
         </Alert>
       ))}
-
+      {/* successfully sign up */}
+      {sign.success !== "" && <Alert variant="success">{sign.success}</Alert>}
       <Form.Group controlId="name">
         <Form.Control
           type="text"
@@ -79,9 +93,12 @@ const SignUpForm = () => {
           placeholder="Phone Number"
         />
       </Form.Group>
-
-      <Button className="main-btn" type="submit">
-        Sign Up
+      <Button
+        type="submit"
+        className="main-btn"
+        disabled={sign.loading === true}
+      >
+        {sign.loading === true ? <Spinner animation="border" /> : "Sign Up"}
       </Button>
     </Form>
   );

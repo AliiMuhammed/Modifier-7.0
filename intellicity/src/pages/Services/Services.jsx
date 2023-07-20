@@ -24,7 +24,7 @@ function Services() {
           err: "Error can't load Services",
         });
       });
-  }, [service.reload]);
+  }, []);
 
   const displayServices = () => {
     return (

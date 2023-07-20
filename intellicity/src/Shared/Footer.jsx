@@ -13,7 +13,7 @@ const Footer = () => {
             <img src={logo} alt="logo footer" />
           </div>
           <div className="footer-links">
-            <ul className="nav-links">
+            <ul className="footer-nav-links">
               <li>
                 <Link to="/#home">Home</Link>
               </li>
