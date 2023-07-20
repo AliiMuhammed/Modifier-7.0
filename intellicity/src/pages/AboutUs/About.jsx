@@ -47,6 +47,7 @@ function About() {
                 <img src={image} alt="about-img" />
             </div>
           </div>
+          <p>testtttttttttttttttttttttttttt</p>
           <Team/>
         </div>
       </section>
