@@ -8,7 +8,10 @@ function Services() {
   const [service, setService] = useState({
     loading: false,
     results: [],
+
     err: null,});
+
+
 
   useEffect(() => {
     setService({ ...service, loading: true });
@@ -66,9 +69,7 @@ function Services() {
     <>
       <MainHeader
         title={"Our Services"}
-        paragraph={
-          "Discover a world of smarter living with Intellicity's cutting-edge smart city solutions and services."
-        }
+        paragraph={"Intellicity empowers cities with tailored solutions"}
       />
 
       <section className="services-section">
@@ -92,15 +93,13 @@ function Services() {
               </Alert>
             </div>
           )}
-          {service.loading === false &&
-            service.err == null &&
-            service.results.length === 0 && (
-              <div className="alert-container container">
-                <Alert className="alret-notAvailable">
-                  There is no services available please come back later
-                </Alert>
-              </div>
-            )}
+          {service.loading === false && service.err == null &&service.results.length===0 && (
+            <div className="alert-container container">
+              <Alert  className="alret-notAvailable">
+              There is no services available please come back later
+              </Alert>
+            </div>
+          )}
         </div>
       </section>
     </>

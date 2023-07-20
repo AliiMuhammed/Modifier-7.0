@@ -33,8 +33,8 @@ export const AboutUs = () => {
                 improving resource efficiency, and enhancing the overall quality
                 of life for residents.
               </p>
-              <Link className="main-btn about-main-btn" to={"/about-us"}>
-                more about us
+              <Link className="main-btn about-main-btn" to={"/team"}>
+                our team
               </Link>
             </div>
           </div>
