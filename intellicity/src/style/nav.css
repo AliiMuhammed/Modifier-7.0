@@ -1,242 +1,107 @@
 nav {
-    height: 6rem;
-    width: 100vw;
-    background: #fff;
-    display: grid;
-    place-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    box-shadow: 0 0 10px #ddd;
     position: fixed;
     top: 0;
-    left: 0;
-    z-index: 99999999;
-    -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.15);
-    font-size: 20px;
-    font-weight: 500;
+    z-index: 10000000;
+    background-color: #ffff;
 }
 
-/*only show for medium and small screens*/
-.nav-toggle-btn {
-    display: none;
-}
-
-.nav-container {
-    height: 100%;
+nav .container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    position: relative;
+    font-size: 1.3rem;
 }
 
-.logo {
-    width: 10rem;
-    display: block;
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    nav .container {
+
+        font-size: 1.2rem;
+    }
 }
 
-.logo img {
-    width: 100%;
-}
-
-.nav-links {
+nav .container .nav-links {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 75%;
+    justify-content: space-between;
+
 }
 
-.nav-links li a {
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    nav .container .nav-links {
+        display: none;
+
+    }
+}
+
+nav .container .nav-links li a {
+    text-transform: capitalize;
     color: var(--main-color);
-
-}
-
-.nav-links li:not(:last-child) a:hover {
-    color: var(--second-color);
     transition: var(--main-transition);
 }
 
-.nav-links .main-btn.login-btn.nav-btn {
-    color: #fff;
+nav .container .nav-links li a:hover {
+    color: var(--second-color)
 }
 
-.nav-links .main-btn.login-btn.nav-btn:hover {
-    color: var(--main-color)
+nav .container .nav-links li:not(:last-child) {
+    margin-right: 25px;
+}
+
+nav .container .logo {
+    width: 15%;
+    display: flex;
+}
+
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    nav .container .logo {
+        width: 50%;
+        display: flex;
+    }
+}
+
+nav .container .logo img {
+    width: 100%;
 }
 
 
-.signUp-btn {
 
+.nav-btns .sign-main-btn{
+    margin-left: 1rem;
     background-color: transparent;
-    color: var(--main-color) !important;
+    color: var(--main-color);
     border-color: var(--main-color);
 }
-
-.signUp-btn:hover {
+.nav-btns .sign-main-btn:hover{
 
     background-color: var(--second-color);
-    color: #fff !important;
+    color: #fff;
     border-color: var(--second-color);
 }
-
-/*=============================Responsive===================================*/
-
-/*small*/
-@media (max-width:768px) {
-    .logo {
-        width: 12rem;
-    }
-}
-
-/*medium*/
-@media (min-width: 993px)and (max-width:1199px) {
-    .nav-links {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width:992px) {
-    .nav-toggle-btn {
-        display: inline-block;
-        background: transparent;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 5555;
-        border: none;
-    }
-
-    .nav-toggle-btn svg {
-        color: var(--main-color);
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        flex-direction: column;
-        gap: 0;
-        perspective: 400px;
-    }
-
-    .nav-links::before {
-        content: "";
-        position: absolute;
-        top: -46px;
-        right: 0;
-        border: 26px solid transparent;
-        border-bottom: 20px solid var(--second-color);
-
-    }
-
-    .nav-links li {
-        height: 4rem;
-        width: 100%;
-        box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.4);
-        animation: navAnimation 600ms ease forwards;
-        transform: rotateX(90deg);
-        opacity: 0;
-        transform-origin: top;
-        background-color: var(--second-color);
-        justify-content: center;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-links li a {
-
-        color: #fff;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        padding: 1rem 4rem 1rem 3rem;
-        font-size: 20px;
-    }
-
-    .nav-links li a:hover {
-        color: var(--third-color) !important;
-    }
-
-    .show-nav {
-        display: flex;
-    }
-
-    .hide-nav {
-        display: none;
-    }
-
-    .nav-links li:nth-child(2) {
-        animation-delay: 200ms;
-    }
-
-    .nav-links li:nth-child(3) {
-        animation-delay: 400ms;
-    }
-
-    .nav-links li:nth-child(4) {
-        animation-delay: 600ms;
-    }
-
-    .nav-links li:nth-child(5) {
-        animation-delay: 800ms;
-    }
-
-    .nav-links li:nth-child(6) {
-        animation-delay: 1000ms;
-    }
-    .nav-links li:nth-child(7) {
-        animation-delay: 1200ms;
-    }
-
-    @keyframes navAnimation {
-        to {
-            opacity: 1;
-            transform: rotateX(0);
-        }
-    }
-
-    .nav-links .main-btn.login-btn.nav-btn {
-        border: none;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        padding: 1rem 5rem 1rem 3rem;
-
-    }
-
-    .profile-circle {
-        display: none !important;
-    }
-
-    .signUp-btn {
-        color: #fff !important;
-    }
-
-}
-
-.profile-link {
-    display: none;
-}
-
-/*large*/
-
-
-
-
-
 nav .container .profile {
-    width: 75px;
+    width: 90px;
 
 }
 
-nav .container .profile  img {
+nav .container .profile img {
     width: 100%;
     border-radius: 50%;
     border: 2px solid var(--second-color);
 }
 
-
+nav .container .profile .profile-btn {
+    background-color: transparent;
+    border: none;
+}
 
 nav .container .profile .profile-btn::after {
     display: none;
 }
+
+
+/**/
