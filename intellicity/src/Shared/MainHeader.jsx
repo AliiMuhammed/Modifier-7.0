@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../Style/main-haeder.css"
-function MainHeader({img,paragraph,title}) {
+function MainHeader({paragraph,title}) {
   return (
     <>
       <div className="main-header gradient">
