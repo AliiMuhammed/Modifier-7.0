@@ -7,6 +7,7 @@ import Sign from "./pages/Auth/SignUp";
 import NotFound from "./Shared/NotFound"
 import App from "./App";
 import Services from "./pages/Services/Services";
+import About from "./pages/AboutUs/About";
 
 export const routes = createBrowserRouter([
  {
@@ -23,7 +24,9 @@ export const routes = createBrowserRouter([
     },{
       path:"/services",
       element:<Services/>
-
+    },{
+      path:"/about-us",
+      element:<About/>
     }
   ],
   errorElement:<NotFound/>
