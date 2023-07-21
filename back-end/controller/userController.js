@@ -7,7 +7,11 @@ const {
   deleteUser,
   showusers,
   updateimage,
+  addService
 } = require("../services/userSevices");
+
+const {getServiceById} = require('../services/servicesServices')
+
 
 async function update(req, res) {
   try {
@@ -138,10 +142,35 @@ async function showUser(req, res) {
   }
 }
 
+async function selectService(req, res) {
+   try{ 
+    const user = await getUserById(req.params.user_id);
+    if (!user[0]) {
+      return res.status(404).json({ errors: [{msg:"User not found"}] });
+    }
+    const service = await getServiceById(req.params.service_id);
+    if (!service[0]) {
+      return res.status(404).json({ errors: [{msg:"Service not found"}] });
+    }
+
+    const Obj = {
+      user_id: req.params.user_id,
+      service_id: req.params.service_id,
+      date: new Date().toISOString()
+    };
+    res.status(200).json(await addService(Obj));
+
+  }catch(err){
+    console.log(err);
+    res.status(500).json({ errors: [{msg: "Internal Server Error"}] });
+  }
+}
+
 module.exports = {
   update,
   deleteU,
   showUsers,
   showUser,
   updateImage,
+  selectService
 };

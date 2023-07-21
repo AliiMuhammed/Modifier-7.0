@@ -7,6 +7,7 @@ async function login(req, res, next) {
     if (!(await bcrypt.compare(req.body.password, result[0].password))) {
       return res.status(400).json({errors:[{ msg: "password isn't correct" }]});
     }
+    result[0].image = "http://" + req.hostname + ":5000/" + result[0].image;
     delete result[0].password;
     res.json(result);
   } catch (error) {
