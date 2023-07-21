@@ -128,7 +128,6 @@ async function showUser(req, res) {
 
     if (user) {
       user[0].image = "http://" + req.hostname + ":5000/" + user[0].image;
-      delete user[0].password;
       res.status(200).json(user);
     } else {
       res.status(404).json({ errors: [{msg:"No users found"}] });

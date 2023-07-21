@@ -1,0 +1,118 @@
+.side-menu {
+    width: 300px;
+    background-color: var(--third-color);
+    padding: 20px;
+    border-radius: 1rem;
+    height: 100%;
+}
+
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .side-menu {
+        width: 100%;
+        margin-top: 5rem;
+    }
+}
+
+/* Medium screens (768px - 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .side-menu {
+
+        height: 60%;
+    }
+}
+
+
+
+.side-menu ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.side-menu li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    font-size: 1.4rem;
+}
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .side-menu li {
+        font-size: 1rem;
+    }
+}
+
+/* Medium screens (768px - 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .side-menu li {
+        font-size: 1rem;
+    }
+}
+
+.side-menu li:not(:last-child) {
+    border-bottom: 1px solid var(--second-color);
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    transition: var(--main-transition);
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.side-menu a svg {
+    margin-right: 10px;
+}
+
+.side-menu a:hover {
+    background-color: var(--second-color);
+
+}
+.side-menu a.delete:hover {
+    background-color: red; 
+    color: #fff;
+  }
+.side-menu .user-img {
+    width: 100%;
+}
+
+.side-menu .user-img img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .side-menu .user-img img {
+        width:150px;
+    }
+}
+
+.side-menu .user-name {
+    text-align: center;
+    margin: 1rem 0 2rem;
+    color: #fff;
+}
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .side-menu .user-name {
+        margin: 1rem 0 ;
+    }
+}
+
+/* Medium screens (768px - 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .side-menu .user-name {
+       font-size: 1.2rem;
+    }
+}

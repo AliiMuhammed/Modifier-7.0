@@ -1,4 +1,6 @@
-.our-services {}
+.our-services {
+    margin-bottom: 11rem;
+}
 
 .our-services .container .heading {
     display: flex;
