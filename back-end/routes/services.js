@@ -12,20 +12,14 @@ const { validate } = require("../validation/servicesValid");
 
 router.post(
   "/create",
-  upload.fields([
-    { name: "img", maxCount: 1 },
-    { name: "video", maxCount: 1 },
-  ]),
+  upload.single("img"),
   validate(),
   create
 );
 
 router.put(
   "/update/:id",
-  upload.fields([
-    { name: "img", maxCount: 1 },
-    { name: "video", maxCount: 1 },
-  ]),
+  upload.single("img"),
   validate(),
   update
 );

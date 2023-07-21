@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import MainHeader from "../../../../../Shared/MainHeader";
 import "../style/users.css";
 import Table from "react-bootstrap/Table";
-import { getAuthUser } from "../../../../../Helper/Storage";
+import { getAuthUser, removeAuthUser } from "../../../../../Helper/Storage";
 import { Link } from "react-router-dom";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { useNavigate } from "react-router-dom";
 import imgProfile from "../../../../../Assest/Images/profile/user.png"
-
-
 import axios from "axios";
+
 function UsersTable() {
   const navigate=useNavigate()
   const admin = getAuthUser();
@@ -44,7 +43,6 @@ function UsersTable() {
         });
       });
   }, [user.reload]);
-
   const displayusers = () => {
     return (
       <>
@@ -64,13 +62,15 @@ function UsersTable() {
             <tbody>
               {user.results.map((user) => {
                 return (
+                  
                   <tr key={user.id}>
                     <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.phone}</td>
                     <td className="table-img">
-                      <img src={user.image_url===""?imgProfile:user.image_url} alt="" />
+                    <img src={user.image_url==="http://localhost:5000/"?imgProfile:user.image_url} alt="" />
+                    
                     </td>
                     <td>{user.type}</td>
                     <td>
@@ -84,6 +84,7 @@ function UsersTable() {
                         >
                           Delete
                         </button>
+                        
                       </div>
                     </td>
                   </tr>
@@ -105,6 +106,10 @@ function UsersTable() {
           reload: user.reload + 1,
           delSuccess: "user deleted Successfully",
         });
+        if(id===admin.id){
+          removeAuthUser();
+          navigate("/")
+        }
       })
       .catch((err) => {
         setusers({
@@ -119,7 +124,7 @@ function UsersTable() {
     <>
       <MainHeader
         title={`Hi ${admin.name}`}
-        paragraph={"Here you can add, and delete Users"}
+        paragraph={"Here you can add Admins, and delete Users"}
         className={"adminuser-header"}
       />
       <section className="users-dataSection">

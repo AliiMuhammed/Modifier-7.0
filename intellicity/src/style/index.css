@@ -14,16 +14,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 
-:root {
-  --main-color: #0665ae;
-  --second-color:#b655a0;
-  --third-color:#0e91cf;
-  --main-paragraph-color: #848484;
-  --main-hover-color: #0647A8;
-  --btns-hover--color: #D2D2D2;
-  --main-transition: all 0.3s ease-in-out;
-} */
+
 :root {
   --main-color: #3e42b1;
   --second-color: #68389f;
