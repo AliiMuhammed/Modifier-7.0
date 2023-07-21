@@ -97,7 +97,7 @@ export const routes = createBrowserRouter([
               element:<UsersTable/>
             },
             {
-              path:"/admin/users/add/:id",
+              path:"/admin/users/add",
               element:<AddAdmin/>,
             }
           ]
