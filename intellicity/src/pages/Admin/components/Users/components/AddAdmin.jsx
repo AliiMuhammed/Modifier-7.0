@@ -6,7 +6,6 @@ import Alert from "react-bootstrap/Alert";
 import { useState, useRef } from "react";
 import axios from "axios";
 const AddAdmin = () => {
-  const admin = getAuthUser();
   const [user, setUser] = useState({
     name: "",
     email: "",

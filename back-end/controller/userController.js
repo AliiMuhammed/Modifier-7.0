@@ -91,7 +91,9 @@ async function deleteU(req, res) {
       return res.status(404).json({ errors: ["User not found"] });
     }
 
-    fs.unlinkSync("./upload/" + user[0].image);
+    if(user[0].image){
+      fs.unlinkSync("./upload/" + user[0].image);
+      }
 
     await deleteUser(user[0].id);
 

@@ -10,6 +10,12 @@
             padding: 0.6rem 1rem;
             border: 2px solid #009f00;
             margin-left: 7px;
+            color: #fff;
+}
+.btn.btn-Update:hover{
+        background-color: transparent;
+        color: var(--main-color);
+
 }
 .btn.btn-show{
             background-color: #0d6efd;
@@ -72,14 +78,20 @@
 
 .addUser-container h1 {
     margin: 2rem 0;
+    color: var(--main-color);
 }
 
+
 .AddUser-form {
-    width: 100%;
+    width: 60%;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .input-addUser {
     width: 100%;
+    margin-bottom: 2rem !important;
 }
 
 .AlertAddUser {

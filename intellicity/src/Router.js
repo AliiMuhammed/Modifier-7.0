@@ -21,6 +21,16 @@ import MainAdmin from "./pages/Admin/components/MainAdmin";
 import AdminUsers from "./pages/Admin/components/Users/AdminUsers";
 import UsersTable from "./pages/Admin/components/Users/components/UsersTable";
 import AddAdmin from "./pages/Admin/components/Users/components/AddAdmin";
+import AdminContactUS from "./pages/Admin/components/ContactUS/AdminContactUS";
+import ContactUsTable from "./pages/Admin/components/ContactUS/components/ContactUsTable";
+import AdminAboutUs from "./pages/Admin/components/AboutUS/AdminAboutUs"
+import MembersTaple from "./pages/Admin/components/AboutUS/Components/MembersTaple"
+import AddMember from "./pages/Admin/components/AboutUS/Components/AddMember"
+import UpdateMember from "./pages/Admin/components/AboutUS/Components/UpdateMember";
+import AdminServices from "./pages/Admin/components/Services/AdminServices"
+import ServicesTable from "./pages/Admin/components/Services/components/ServicesTable";
+import UpdateServices from "./pages/Admin/components/Services/components/UpdateServices";
+import AddServices from "./pages/Admin/components/Services/components/AddServices";
 export const routes = createBrowserRouter([
  {
   path:"",
@@ -99,6 +109,48 @@ export const routes = createBrowserRouter([
             {
               path:"/admin/users/add",
               element:<AddAdmin/>,
+            }
+          ]
+        }
+        ,{
+          path:"/admin/contact-us",
+          element:<AdminContactUS/>,
+          children:[
+            {
+              path:"",
+              element:<ContactUsTable/>
+            }
+          ]
+        }
+        ,{
+          path:"/admin/about-us",
+          element:<AdminAboutUs/>,
+          children:[
+            {
+              path:"",
+              element:<MembersTaple/>
+            },{
+              path:"/admin/about-us/add",
+              element:<AddMember/>
+            },{
+              path:"/admin/about-us/update/:id",
+              element:<UpdateMember/>
+            }
+          ]
+        }
+        ,{
+          path:"/admin/services",
+          element:<AdminServices/>,
+          children:[
+            {
+              path:"",
+              element:<ServicesTable/>
+            },{
+              path:"/admin/services/add",
+              element:<AddServices/>
+            },{
+              path:"/admin/services/update/:id",
+              element:<UpdateServices/>
             }
           ]
         }

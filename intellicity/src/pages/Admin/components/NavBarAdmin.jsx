@@ -19,7 +19,7 @@ const admin = getAuthUser();
           <div className="right">
             <div className="admin-data">
               <div className="admin-img">
-                <img src={admin.image===""?imgProfile:admin.image} alt="" />
+                <img src={admin.image==="http://localhost:5000/"?imgProfile:admin.image} alt="" />
               </div>
               <div className="admin-name">
                 <span>{admin.name}</span>

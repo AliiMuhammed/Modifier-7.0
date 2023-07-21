@@ -7,7 +7,7 @@ function ServiceCard({ img, title, desc }) {
         <img src={img} alt="serviceImage" />
       </div>
       <h3>{title}</h3>
-      <Link className="main-btn view-more-main-btn" to={"/"}>
+      <Link className="main-btn view-more-main-btn" to={"/services"}>
         View More
       </Link>
     </div>

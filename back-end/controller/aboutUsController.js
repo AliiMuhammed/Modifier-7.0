@@ -25,7 +25,6 @@ async function update(req, res) {
         linkedin: req.body.linkedin,
         gitHub: req.body.gitHub,
         member_Role: req.body.member_Role,
-        position: req.body.position
     };
 
     if (req.file) {
