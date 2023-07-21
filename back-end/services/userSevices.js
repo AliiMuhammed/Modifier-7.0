@@ -27,10 +27,23 @@ async function showusers() {
   return await query("select * from users");
 }
 
+async function addService(data){
+  const query = util.promisify(connection.query).bind(connection);
+  const add = await query("select * from users_services where service_id =? and user_id =?", [data.service_id, data.user_id]);
+  if(! add.length > 0){
+  await query("insert into users_services set ?", [data]);
+  return "created"
+  }
+  else {
+    return "Service already selected"
+  }
+}
+
 module.exports = {
   getUserById,
   updateUser,
   deleteUser,
   showusers,
   updateimage,
+  addService
 };

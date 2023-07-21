@@ -7,6 +7,7 @@ const {
   showUser,
   showUsers,
   updateImage,
+  selectService
 } = require("../controller/userController");
 const { validate } = require("../validation/userValidation");
 
@@ -19,5 +20,7 @@ router.delete("/deleteUser/:id", deleteU);
 router.get("/getUser/:id", showUser);
 
 router.get("/getUsers", showUsers);
+
+router.post("/select/:user_id/:service_id", selectService);
 
 module.exports = router;
