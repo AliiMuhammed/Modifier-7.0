@@ -87,7 +87,7 @@ const NavBar = () => {
               <li className="profile-circle">
                 <div className="profile">
                   <NavLink to={"/profile" + "/" + auth.type + "/"+ auth.id}>
-                    <img src={auth.image===""?profile:auth.image} alt="" />
+                    <img src={auth.image==="http://localhost:5000/"?profile:auth.image} alt="" />
                   </NavLink>
                 </div>
               </li>

@@ -32,7 +32,7 @@ const SideMenu = () => {
       <div className="side-menu">
         <ul>
           <div className="user-img">
-            <img src={user.image === "" ? profile : user.image} alt="" />
+            <img src={user.image === "http://localhost:5000/" ? profile : user.image} alt="" />
           </div>
           <div className="user-name">
             <h3>{user.name}</h3>
