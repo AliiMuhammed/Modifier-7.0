@@ -15,7 +15,12 @@ import Profile from "./pages/Profile/Profile"
 import MyServices from "./pages/Profile/components/MyServices";
 import EditProfile from "./pages/Profile/components/EditProfile";
 import MyFeedback from "./pages/Profile/components/MyFeedback";
-
+import Admin from "./middleware/Admin";
+import DashBoard from "./pages/Admin/DashBoard";
+import MainAdmin from "./pages/Admin/components/MainAdmin";
+import AdminUsers from "./pages/Admin/components/Users/AdminUsers";
+import UsersTable from "./pages/Admin/components/Users/components/UsersTable";
+import AddAdmin from "./pages/Admin/components/Users/components/AddAdmin";
 export const routes = createBrowserRouter([
  {
   path:"",
@@ -70,6 +75,35 @@ export const routes = createBrowserRouter([
     },
   ],
   errorElement:<NotFound/>
-}
-
+},
+//Admin Middleware
+{
+  path: "/admin",
+  element: <Admin/>,
+  children: [
+    {
+      path:"/admin",
+      element:<DashBoard/>,
+      children:[
+        {
+          path:"",
+          element:<MainAdmin/>
+        },{
+          path:"/admin/users",
+          element:<AdminUsers/>,
+          children:[
+            {
+              path:"",
+              element:<UsersTable/>
+            },
+            {
+              path:"/admin/users/add/:id",
+              element:<AddAdmin/>,
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  }
   ]);
