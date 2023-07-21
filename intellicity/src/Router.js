@@ -9,6 +9,12 @@ import App from "./App";
 import Services from "./pages/Services/Services";
 import About from "./pages/AboutUs/About";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import Guest from "./middleware/Guest";
+import GuestProfile from "./middleware/GuestProfile";
+import Profile from "./pages/Profile/Profile"
+import MyServices from "./pages/Profile/components/MyServices";
+import EditProfile from "./pages/Profile/components/EditProfile";
+import MyFeedback from "./pages/Profile/components/MyFeedback";
 
 export const routes = createBrowserRouter([
  {
@@ -18,10 +24,6 @@ export const routes = createBrowserRouter([
     {
       path: "/",
       element: <Home/ >,
-    },
-    {
-      path: "/sign-up",
-      element: <Sign/>,
     },{
       path:"/services",
       element:<Services/>
@@ -31,15 +33,43 @@ export const routes = createBrowserRouter([
     },{
       path:"/contact-us",
       element:<ContactUs/>
-    }
+    },//Guest Profile Middleware
+    {
+      element: <GuestProfile />,
+      children: [
+        {
+          path: "/profile/user",
+          element: <Profile />,
+          children:[
+            {
+              path: "/profile/user/:id",
+              element:<MyServices/>
+            },{
+              path: "/profile/user/:id/edit",
+              element:<EditProfile/>
+            },{
+              path: "/profile/user/:id/feedback",
+              element:<MyFeedback/>
+            }
+          ]
+        },
+      ],
+    },
+    //Guest Middleware
+    {
+      element: <Guest />,
+      children: [
+        {
+          path: "/login",
+          element: <Login />,
+        },{
+          path: "/sign-up",
+          element: <Sign/>,
+        }
+      ],
+    },
   ],
   errorElement:<NotFound/>
-},    {
-  path: "/login",
-  element: <Login/>,
-},
-//  {
-//   path:"*",
-//   element:
-//  }
+}
+
   ]);

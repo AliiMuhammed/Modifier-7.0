@@ -1,3 +1,6 @@
+.service-section:last-child{
+    margin-bottom:11rem;
+}
 .service-section:not(:first-of-type){
     margin-top: 5rem;
 }

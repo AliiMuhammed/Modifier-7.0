@@ -1,6 +1,7 @@
 .footer {
     box-shadow: 0 0 10px #ddd;
     padding: 5rem 0;
+    margin-top: 0;
 }
 
 .footer .container,

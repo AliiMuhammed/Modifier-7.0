@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, NavLink } from "react-router-dom";
 import logo from "../Assest/Images/h-logo.png";
 import "../Style/nav.css";
-import profile from "../Assest/Images/profile.jpg";
+import profile from "../Assest/Images/profile/user.png";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
 import { getAuthUser, removeAuthUser } from "../Helper/Storage";
@@ -86,8 +86,8 @@ const NavBar = () => {
             <>
               <li className="profile-circle">
                 <div className="profile">
-                  <NavLink to={"/profile/" + auth.type}>
-                    <img src={profile} alt="" />
+                  <NavLink to={"/profile" + "/" + auth.type + "/"+ auth.id}>
+                    <img src={auth.image===""?profile:auth.image} alt="" />
                   </NavLink>
                 </div>
               </li>

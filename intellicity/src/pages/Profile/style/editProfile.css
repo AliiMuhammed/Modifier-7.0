@@ -1,0 +1,39 @@
+.edit-user-profile{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center
+}
+
+.edit-user-profile form{
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 70%;
+}
+/* Small screens (up to 767px) */
+@media only screen and (max-width: 767px) {
+    .edit-user-profile form{
+
+        width: 100%;
+    }
+    
+}
+.edit-user-profile form input{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border: 1px solid var(--third-color);
+    color: var(--main-color);
+        
+    transition:var(--main-transition) ;
+}
+.edit-user-profile form input:focus{
+    box-shadow: 0 0 0 0.25rem #68389f40;
+    border-color: var(--second-color);
+
+}
+.edit-user-profile form input::placeholder{
+
+    color: var(--main-color);
+}

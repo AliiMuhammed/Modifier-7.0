@@ -1,10 +1,10 @@
-.contact {}
 
 .contact .container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    
 }
 
 .contact .container .content {
@@ -122,6 +122,9 @@ textarea:focus {
 
 }
 
+.social-media {
+    margin-bottom: 11rem;
+}
 .social-media .container{
     display: flex;
     align-items: center;
@@ -134,9 +137,7 @@ textarea:focus {
     grid-template-columns: repeat(3,1fr);
     gap: 2rem;
 }
-.social-media .container .links .link{
 
-}
 .social-media .container .links .link a{
     color: #fff;
     font-size: 3rem;
