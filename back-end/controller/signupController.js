@@ -44,7 +44,7 @@ async function postSignup(req, res) {
     } else {
       res.status(400).json({ errors: [{ msg: "Email already exists!" }] });    }
   } catch (error) {
-    console.log(error);
+    
   }
 }
 
